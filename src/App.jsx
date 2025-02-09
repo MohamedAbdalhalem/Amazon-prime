@@ -27,7 +27,7 @@ import VerifyCode from './Components/VerifyCode/VerifyCode';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import Profile from './Components/Profile/Profile';
 import UpdateUserData from './Components/UpdateUserData/UpdateUserData';
-import UpdatePassword from './Components/updatePassword/updatePassword';
+import UpdatePassword from './Components/UpdatePassword/UpdatePassword';
 const router = createBrowserRouter([
     {
         path: '', element: <Layout />, children: [
