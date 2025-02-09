@@ -11,6 +11,7 @@ export default function Cart() {
   const [louding1, setlouding1] = useState(false)
   const [louding2, setlouding2] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
+  const [id,setId] = useState('')
   if (!products) {
     return <LoudingScreen />
   }
@@ -22,7 +23,11 @@ export default function Cart() {
     await clearCart()
     setlouding1(false)
   }
-  async function handleDeleteItem(id) {
+  function handleopen(id) {
+    setIsOpen(true)
+    setId(id)
+  }
+  async function handleDeleteItem() {
     setlouding2(true)
     await removeProductFromCart(id)
     setlouding2(false)
@@ -101,7 +106,7 @@ export default function Cart() {
           {product.price}
         </td>
         <td className="px-6 py-4">
-                          <button onClick={() => setIsOpen(true)} className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
+                          <button onClick={() => handleopen(product.product.id)} className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
                           {isOpen && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
           <div className="relative bg-white rounded-lg shadow-md w-full max-w-md">
